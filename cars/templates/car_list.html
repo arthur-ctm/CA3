@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <h1>List of cars</h1>
+
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>Team</th>
+            <th>Color</th>
+            <th>Driver</th>
+            <th>Horses</th>
+            <th>Aerodynamics</th>
+            <th>Safety</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for car in cars %}
+            <tr>
+                <td>{{ car.team }}</td>
+                <td>{{ car.colour }}</td>
+                <td>{{ car.driver }}</td>
+                <td>{{ car.horses }}</td>
+                <td>{{ car.aero }}</td>
+                <td>{{ car.safety }}</td>
+                <td>
+                    <a href="{% url 'car_detail' car.id %}">View</a>
+                    <a href="{% url 'car_update' car.id %}">Edit</a>
+                    <a href="{% url 'car_delete' car.id %}" class="delete-link">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'car_create' %}">Add a car</a></p>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        // Delete confirmation
+        const deleteLinks = document.querySelectorAll('.delete-link');
+        for (const link of deleteLinks) {
+            link.addEventListener('click', event => {
+                if (!confirm('Are you sure you want to delete this car?')) {
+                    event.preventDefault();
+                }
+            });
+        }
+    </script>
+{% endblock %}

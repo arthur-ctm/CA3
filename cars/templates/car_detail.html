@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<head>
+
+
+</head>
+{% block content %}
+    <h1>{{ car.team }}</h1>
+
+    <dl>
+        <dt>Color :</dt>
+        <dd>{{ car.colour }}</dd>
+
+        <dt>Pilot :</dt>
+        <dd>{{ car.driver }}</dd>
+
+        <dt>Horses :</dt>
+        <dd>{{ car.horses }}</dd>
+
+        <dt>Aerodynamic :</dt>
+        <dd>{{ car.aero }}</dd>
+
+        <dt>Safety :</dt>
+        <dd>{{ car.safety }}</dd>
+    </dl>
+
+    <p>
+        <a href="{% url 'car_update' car.id %}">Modify</a>
+        <a href="{% url 'car_delete' car.id %}" class="delete-link">Delete</a>
+    </p>
+{% endblock %}

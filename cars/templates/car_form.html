@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% if car %}Edit Car{% else %}New Car{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="team">Team</label>
+            {{ form.team }}
+            {% if form.team.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.team.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="colour">Colour</label>
+            {{ form.colour }}
+            {% if form.colour.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.colour.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="driver">Driver</label>
+            {{ form.driver }}
+            {% if form.driver.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.driver.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="horses">Horses</label>
+            {{ form.horses }}
+            {% if form.horses.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.horses.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="aero">Aero</label>
+            {{ form.aero }}
+            {% if form.aero.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.aero.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="safety">Safety</label>
+            {{ form.safety }}
+            {% if form.safety.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.safety.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">{% if car %}Save{% else %}Create{% endif %}</button>
+        <a href="{% url 'car_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}

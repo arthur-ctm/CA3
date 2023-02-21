@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% if driver %}Edit Driver{% else %}New Driver{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="number">Number</label>
+            {{ form.number }}
+            {% if form.number.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.number.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="first_name">First name</label>
+            {{ form.first_name }}
+            {% if form.first_name.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.first_name.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last name</label>
+            {{ form.last_name }}
+            {% if form.last_name.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.last_name.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            {{ form.age }}
+            {% if form.age.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.age.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">{% if driver %}Save{% else %}Create{% endif %}</button>
+        <a href="{% url 'driver_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
