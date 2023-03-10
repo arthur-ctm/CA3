@@ -7,6 +7,8 @@ from .models import Car
 from .forms import DriverForm
 from .models import Driver
 
+def index(request):
+    return render(request, 'index.html')
 
 # Define views for cars
 def car_list(request):

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My App{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'index' %}">My App</a>
+    {% if user.is_authenticated %}
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <p class="nav-item {% block nav_car %}{% endblock %}">
+                <a class="nav-link" href="{% url 'car_list' %}">Cars</a>
+            </p>
+            <p class="nav-item {% block nav_driver %}{% endblock %}">
+                <a class="nav-link" href="{% url 'driver_list' %}">Drivers</a>
+            </p>
+            {% if user.is_authenticated %}
+                <p class="nav-item {% block nav_profile %}{% endblock %}">
+                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                </p>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+    <div class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item {% block nav_login %}{% endblock %}">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item {% block nav_signup %}{% endblock %}">
+                <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+            </li>
+        {% endif %}
+    </div>
+</nav>
+
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
