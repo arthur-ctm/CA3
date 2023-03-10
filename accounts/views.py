@@ -8,8 +8,6 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.urls import reverse
 
-
-
 @login_required
 def profile(request):
     return render(request, 'registration/profile.html')
