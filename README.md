@@ -1,6 +1,6 @@
 # CA2
 
-I am using the same project as CA1, I just added the accounts sytsmen. This is a simple web application built with Django that allows users to perform CRUD (Create, Read, Update, Delete) operations on a database of drivers and cars with an account system.
+I am using the same project as CA1 (this is way it is the same djangoproject name), I just added the accounts sytsmen. This is a simple web application built with Django that allows users to perform CRUD (Create, Read, Update, Delete) operations on a database of drivers and cars with an account system.
 
 # Developing process 
 
