@@ -32,6 +32,6 @@ To run individual tests, use the command "python manage.py test <app_name>.<test
   
 # Security 
 
-  I added     <meta http-equiv="X-XSS-Protection" content="1; mode=block"> in my base.html file
+  I added "<meta http-equiv="X-XSS-Protection" content="1; mode=block">" in my base.html file
 
  
