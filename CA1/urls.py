@@ -18,7 +18,7 @@ from django.urls import path, include
 from cars.views import index
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('apple/', admin.site.urls),
     path('cars/', include('cars.urls')),
     path('accounts/', include('accounts.urls')),
     path("accounts/", include("django.contrib.auth.urls")),
