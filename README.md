@@ -36,4 +36,6 @@ To run individual tests, use the command "python manage.py test <app_name>.<test
   
   To prevent unauthorized redirection attacks, I use Django's built-in redirect function instead of manually constructing URLs. This function checks that the URL being redirected to is within the same domain as the current page, and prevents redirects to potentially malicious external sites. 
 
- 
+# System with a config file for development and another file for test
+Create a new directory named setting in my Django project directory.
+Inside the setting directory, I created two files named development.py and test.py. These files will hold the configuration for development and testing respectively.
