@@ -35,6 +35,8 @@ To run individual tests, use the command "python manage.py test <app_name>.<test
   I added `` < meta http-equiv= "X-XSS-Protection" content="1 ; mode=block" > `` in my base.html file.
   
   To prevent unauthorized redirection attacks, I use Django's built-in redirect function instead of manually constructing URLs. This function checks that the URL being redirected to is within the same domain as the current page, and prevents redirects to potentially malicious external sites. 
+  
+ I changed path('admin/', admin.site.urls), by path('apple/', admin.site.urls),
 
 # System with a config file for development and another file for test
 Create a new directory named setting in my Django project directory.
